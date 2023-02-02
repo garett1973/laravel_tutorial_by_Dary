@@ -3,6 +3,7 @@
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,7 @@ Route::get('/', function () {
 });
 
 // Route for the invoke method
-Route::get('/home', HomeController::class);
+//Route::get('/home', HomeController::class);
 
 //Route::resource('blog', PostsController::class);
 
@@ -110,4 +111,4 @@ Route::fallback(FallbackController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
