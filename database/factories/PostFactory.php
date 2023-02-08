@@ -19,11 +19,12 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->sentence(),
+            'excerpt' => $this->faker->realText($maxNbChars = 15, $indexSize = 2),
             'body' => $this->faker->paragraph(),
-            'excerpt' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
-            'minutes_to_read' => $this->faker->numberBetween($min = 1, $max = 10),
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
-            'is_published' => 0,
+            'is_published' => 1,
+            'minutes_to_read' => $this->faker->numberBetween($min = 1, $max = 10),
+            'user_id' => 1,
         ];
     }
 }
